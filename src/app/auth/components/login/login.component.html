@@ -1,0 +1,95 @@
+<html>
+
+<body>
+  <article class="flex-container">
+    <section class="flex">
+      <div id="blur"></div>
+      <div class="content">
+        <h5 class="heading ">
+          <b>Login</b>
+          <span class="subheading">You are a few steps away from bringing about a Change.</span>
+        </h5>
+
+
+        <main class="loginFields">
+          <form class="loginFields" (submit)="login(loginForm)" #loginForm="ngForm">
+            <br>
+            <!-- <mat-form-field  appearance="outline">
+              <mat-label >Email</mat-label>
+              <input matInput name="email" ngModel required #email="ngModel">
+              <mat-icon matSuffix></mat-icon>
+              <mat-error *ngIf="email.invalid">Please enter a Email</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Primary</button>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel required #password="ngModel">
+              <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="password.invalid">Please enter a password</mat-error>
+              <mat-hint align='end'>Forgot Password?</mat-hint>
+            </mat-form-field> -->
+
+
+
+            <!-- <div class="LoginMobileNumber"> -->
+            <mat-form-field  appearance="outline">
+                <mat-label >Mobile Number</mat-label>
+                <input matInput name="Number" ngModel maxlength= "10" required #number="ngModel">
+                <mat-icon matSuffix></mat-icon>
+                <mat-error *ngIf="number.invalid">Please enter Valid Mobile number</mat-error>
+            </mat-form-field>
+            <div *ngIf="continueHide">
+            <button type="button" class="NextButton btn-ctn" mat-raised-button color="primary" (click)="getOtp(number)" >
+              Continue
+              <!-- <i class="material-icons"></i> -->
+            </button>
+          </div>
+              <!-- </div> -->
+              <div *ngIf="passwordHide" class="myclss">
+                <div class="LoginMobileNumber">
+            <mat-form-field appearance="outline">
+                <mat-label>OTP</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel required #password="ngModel">
+                <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password.invalid">Please enter a OTP</mat-error>
+                <mat-hint align='end'>Forgot Password?</mat-hint>
+              </mat-form-field>
+                </div>
+              <br>
+              <button class="btn-signIn" type="submit" mat-raised-button>SIGN IN</button>
+            </div>
+
+
+          </form>
+          <br>
+        </main>
+      </div>
+      <br><br>
+      <footer class="footer">
+        <article class="row">
+          <section class="footer1">
+            <p>New here?</p>
+            <h6>Be a part of the Journey</h6>
+          </section>
+          <section class="footer2">
+          </section>
+        </article>
+        <article class="row">
+          <section class="footer1">
+              <a routerLinkActive="active" routerLink="/register"><button class="btn-signup" mat-raised-button>SIGN UP</button></a>
+          </section>
+          <section class="footer2">
+            <figure>
+              <a class="university" href="https://www.universityofcommons.com/"><img src="/assets/images/default/uoc-new-logo_colour.png" alt="University of commons"></a>
+            </figure>
+          </section>
+        </article>
+      </footer>
+      <!-- </div> -->
+
+
+    </section>
+  </article>
+</body>
+
+</html>

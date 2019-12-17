@@ -1,0 +1,442 @@
+<body>
+  <header>
+    <app-header></app-header>
+  </header>
+
+
+
+  <main>
+    <div class="parent">
+      <div class="image-banner">
+        <img class="backgroundImage" src="../../../assets/images/default/nikhita.jpg">
+        <!-- <img class="profileBanner" src="../../../assets/images/default/profile page banner.png"> -->
+        <!-- <p class="profileHeading">Help us connect you with the <br>changemakers out there</p>
+            <span class="profilesubHeading">Please complete the profile given below</span> -->
+        <div class="banner-content">
+          <p class="profileHeading">Help us <span class="connect">connect</span> you with the <br>changemakers out there
+            <br>
+            <span class="profilesubHeading">Please complete the profile given below</span>
+          </p>
+
+        </div>
+      </div>
+
+      <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit(profileForm.value)">
+        <div class="personal-details">
+
+          <div class="step1">
+            <div class="step1-heading">
+              <h5>STEP 1</h5>
+              <h6>PERSONAL <br> DETAILS</h6>
+              <br>
+              <small>Tell the world <br> a little bit about <br> yourself</small>
+              <br>
+            </div>
+          </div>
+          <div class="upload-pic">
+            <div *ngIf="showPic; else notShowPic">
+              <div class="pic-present">
+                <img class="uploadedImage" [src]="this.url">
+                <input hidden id="fileInput" type='file' #uploader (change)="uploadProfilePic($event)">
+
+                <button type="button" class="plus-icon-UploadedImage" mat-mini-fab color="accent"
+                  (click)='uploader.click()'>
+                  <mat-icon class='add-icon'>add</mat-icon>
+                </button>
+              </div>
+            </div>
+            <ng-template #notShowPic>
+              <div class="pic-notpresent">
+                <i class="fas fa-user"></i>
+                <input hidden id="fileInput" type='file' #uploader (change)="uploadProfilePic($event)">
+
+                <button type="button" class="plus-icon" mat-mini-fab color="accent" (click)='uploader.click()'>
+
+                  <mat-icon class='add-icon'>add</mat-icon>
+                </button>
+                <p class="addPic">Add a Picture</p>
+              </div>
+            </ng-template>
+          </div>
+
+
+          <div class="tabs">
+            <mat-tab-group>
+
+              <mat-tab label="BASIC INFO">
+                <!-- (submit)="" -->
+                <div class="basicinfo">
+                  <div class="nameField">
+                    <!-- <input type="text" class="form-control" placeholder="{{this.userFirstName}}" name="firstName"
+                      formControlName="firstName" [(ngModel)] = "this.userFirstName" autocomplete="off" required>
+                    <div class="lastName"></div>
+                    <input type="text" class="form-control" placeholder="{{this.userLastName}}" [(ngModel)]= "this.userLastName" name="lastName"
+                      formControlName="lastName" autocomplete="off" required> -->
+                      <input type="text" class="form-control "  placeholder="{{this.userFirstName}}" required>
+                      <div class="lastName"></div>
+                      <input type="text" class="form-control "  placeholder="{{this.userLastName}}"
+                        required>
+                  </div>
+
+                  <br>
+                  <div class="datagender">
+                    <input type="tel" class="form-control innerDivMobile"  placeholder="{{this.contactValue}}" required>
+                    <input type="text" class="form-control innerDivEmail" placeholder="{{this.mailId}}"
+                      required>
+
+                  </div>
+                  <br>
+                  <div class="datagender">
+                    <input type="text" name="date" class="form-control outerDiv" placeholder="Date of birth"
+                      formControlName="dateofbirth" onfocus="(this.type='date')"
+                      onblur="if(!this.value)this.type='text'" name="date" required>
+                    <select class="form-control" placeholder="Gender" name="gender" formControlName="gender"
+                      autocomplete="off" required>
+                      <option value="" disabled>Gender</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Others</option>
+                    </select>
+                  </div>
+                  <br>
+                  <div class="nameField">
+                    <select class="form-control outerDiv" placeholder="City" name="selectedCity"
+                      formControlName="selectedcity" autocomplete="off" required>
+                      <option value="" disabled>Select City</option>
+                      <option *ngFor="let citys of city" [value]="citys.dataCode"> {{citys.label}}</option>
+                    </select>
+                    <input type="tel" maxlength="6" class="form-control" name="pincode" placeholder="Pincode"
+                      formControlName="pincode" onfocus="this.placeholder=''" onblur="this.placeholder='Pincode'">
+                  </div>
+                  <br>
+                  <div class="cityOccupation nameField">
+                      <input type="text" class="form-control" name="occupation" placeholder="Current Position (eg. Student , SoftwareEngineer)"
+                        formControlName="occupation" autocomplete="off" onblur="this.placeholder='Current Position (eg. Student , SoftwareEngineer)'" onfocus="this.placeholder=''" required>
+                    </div>
+                    <br>
+                  <div class="aboutMe">
+                    <textarea placeholder="  What would you describe about yourself?" name="aboutMe"
+                      formControlName="aboutMe" onfocus="this.placeholder=''"
+                      onblur="this.placeholder=' What would you describe about yourself?'" required></textarea>
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="LANGUAGE">
+                  <div class="basicinfo1">
+                  <div class="date-genderFields">
+                      <div class="networkHeading">
+                        <p>Language</p>
+                      </div>
+                      <div class="addnetWorkButton">
+                        <p class="networkLinks" (click)="addLanguage()">Add more Language</p>
+                      </div>
+                    </div>
+                    <div formArrayName="languageSel">
+                      <div class="socialnetworks" *ngFor="let item of getFormControl(profileForm,'languageSel'); let i = index;">
+                        <div class="fields" [formGroupName]="i">
+
+                          <!-- <select class="form-control" autocomplete="off"  required>
+                              <option value="volvo">Volvo</option> formControlName="selectedlanguage"
+                              <option value="saab">Saab</option>
+                              <option value="opel">Opel</option>
+                              <option value="audi">Audi</option>
+                           </select> -->
+                           <div class="languageSelectFields">
+                          <select class="form-control" formControlName="selectedlanguage" autocomplete="off" required>
+                            <option value="" disabled selected>Select Language</option>
+                            <option *ngFor="let lang of language" [value]="lang.dataCode">{{lang.label}}</option>
+                           </select>
+                          </div>
+                          <div class="radioButton">
+                              <mat-checkbox formControlName="read" >Read</mat-checkbox>
+                              <mat-checkbox formControlName="speak" >Speak</mat-checkbox>
+                              <mat-checkbox formControlName="write" >Write</mat-checkbox>
+                           <!-- <label><input type="checkbox" formControlName="read"> Read</label>
+                           <label><input type="checkbox" formControlName="speak">Speak</label>
+                           <label><input type="checkbox" formControlName="write"> Write</label> -->
+                          </div>
+                        </div>
+                        <div class="remove1">
+                                 <button type="button"  mat-mini-fab>
+                          <mat-icon (click)="removeLanguage(i)">remove</mat-icon>
+                        </button>
+                      </div>
+
+                      <br><br><br>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+              </mat-tab>
+
+
+              <mat-tab label="NETWORKS">
+                <div class="basicinfo">
+                      <div class="date-genderFields">
+                    <div class="networkHeading">
+                      <p>Social Networks</p>
+                    </div>
+                    <div class="addnetWorkButton">
+                      <p class="networkLinks" (click)="addItem()">Add more Networks</p>
+                      <!-- <button mat-mini-fab>
+                    <mat-icon (click)="addItem()" >add</mat-icon>
+                  </button> -->
+                    </div>
+                  </div>
+                  <div formArrayName="socialnetwork">
+                    <div class="socialnetworks" *ngFor="let item of getFormControl(profileForm,'socialnetwork'); let i = index;">
+                      <div class="fields" [formGroupName]="i">
+                        <select class="form-control" name="socialNetwork" formControlName="socialNetwork" autocomplete="off" required>
+                          <option value="" disabled>Select NetWork</option>
+                          <option *ngFor="let network of socialNetworks" [value]="network.dataCode">{{network.label}}
+                          </option>
+                        </select>
+                        <input type="text" class="form-control spacer" placeholder="Link" formControlName="link" onfocus="this.placeholder=''" onblur="this.placeholder='Link'"
+                          autocomplete="off" required>
+                      </div>
+
+                      <button type="button" class="remove" mat-mini-fab>
+                        <mat-icon (click)="removeItem(i)">remove</mat-icon>
+                      </button>
+                      <br><br><br>
+                    </div>
+                  </div>
+
+                </div>
+
+              </mat-tab>
+              <!-- <mat-tab label="EDUCATION"> Content 3 </mat-tab>
+              <mat-tab label="WORK"> Content 3 </mat-tab> -->
+
+            </mat-tab-group>
+          </div>
+
+          <div class="imageStep1">
+            <img class="step1image" src="../../../assets/images/default/Step 1.svg">
+          </div>
+        </div>
+        <div class="domains">
+          <div class="step2">
+            <div class="step2-heading">
+              <h5 class="step2-font">STEP 2</h5>
+              <h6>DOMAINS</h6>
+              <br>
+              <small>Tell us a little <br> about your <br> areas of interest</small>
+            </div>
+          </div>
+          <div class="interestedDomains">
+
+
+
+
+            <div mt-2 class="outerDiv">
+              <div class="selectedDomains">
+                <div class="softSkills" *ngFor="let follow of finalFollowingDomain">
+                  <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>  onclick="this.parentElement.style.backgroundColor='#5856D6'"-->
+                  <span class="badge badge-pill selectedBadge">
+                    <!-- <i class="fas fa-times"
+                  (click)="close(follow.id, follow.title)" onclick="this.parentElement.style.display='none'"></i> -->
+                    <button type="button" mat-mini-fab onclick="this.parentElement.style.display='none'">
+                      <mat-icon (click)="close(follow.id, follow.title)">remove</mat-icon>
+                    </button>
+                    <span> {{follow.title}} </span>
+                  </span>
+                </div>
+              </div>
+              <!-- <br><br> -->
+              <!-- let domain of domainTitle  <mat-icon>add</mat-icon>-->
+              <div class="domain-body">
+                <div *ngIf="notShowDomainNames; else showDomainNames">
+                  <div class="softSkills" *ngFor="let domain of this.finalDomains">
+                    <!-- <span class="badge badge-pill">{{domain.title}}<i class="fas fa-plus" (click)="addToFollowDomain(domain.id, $event)"></i></span> -->
+                    <span class="badge badge-pill">
+                      <button type="button" mat-mini-fab>
+                        <mat-icon (click)="addToFollowDomain(domain.id, $event)">add</mat-icon>
+                      </button>
+                      <span> {{domain.title}}</span>
+                    </span>
+                  </div>
+                </div>
+                <ng-template #showDomainNames>
+                  <div class="softSkills" *ngFor="let domain of domainNames">
+                    <span class="badge badge-pill badge-light">
+                      <!-- <span>
+                       <i class="fa fa-plus fa-lg"
+                        (click)="addToFollowDomain(domain.id)">
+                      </i>
+                    </span> -->
+                      <button type="button" mat-mini-fab>
+                        <mat-icon (click)="addToFollowDomain(domain.id, $event)">add</mat-icon>
+                      </button>
+                      <span>{{domain.title}}</span>
+                    </span>
+                  </div>
+                </ng-template>
+              </div>
+
+            </div>
+
+
+
+
+          </div>
+          <!-- <div class="interestedDomainImage">
+          <img class="step2DomainImage" src="../../../assets/images/default/Step 2.svg">
+        </div> -->
+          <div class="step2Image">
+            <img class="step2DomainImage" src="../../../assets/images/default/Step 2.svg">
+          </div>
+        </div>
+
+
+
+
+
+        <div class="skills">
+          <!-- <p>welcome22</p> -->
+          <div class="step3">
+            <div class="step3-heading">
+              <h5>STEP 3</h5>
+              <h6>SKILLS</h6>
+              <br>
+              <small>Tell us what sets <br> you apart from<br> the others</small>
+            </div>
+          </div>
+          <div class="interestedSkills">
+
+
+
+            <!-- hardskill -->
+            <p class="domains1">HardSkills</p>
+
+            <div class="softSkills" *ngFor="let hardskill of finalFollowingHardSkills">
+              <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>  onclick="this.parentElement.style.backgroundColor='#5856D6'"-->
+              <span class="badge badge-pill selectedBadge">
+                <!-- <i class="fa fa-times" (click)="closeSkills(hardskill.id, hardskill.userId)"
+               onclick="this.parentElement.style.display='none'">
+              </i> -->
+                <button type="button" mat-mini-fab onclick="this.parentElement.style.display='none'">
+                  <mat-icon (click)="closeSkills(hardskill.id, hardskill.userId)">remove</mat-icon>
+                </button>
+                <span> {{hardskill.title}}</span>
+              </span>
+            </div>
+            <!-- <br><br> -->
+            <div *ngIf="notShowHardskillsNames; else showHardSkillNames">
+              <div class="softSkills" *ngFor="let hardSkills of this.finalRemainingHardSkills">
+                <span class="badge badge-pill">
+                  <!-- <i class="fa fa-plus fa-lg" (click)="addHardSkills( hardSkills.id, $event)"></i> -->
+                  <button type="button" mat-mini-fab>
+                    <mat-icon (click)="addHardSkills( hardSkills.id , $event)">add</mat-icon>
+                  </button>
+                  <span> {{hardSkills.title}}</span>
+                </span>
+              </div>
+            </div>
+            <br>
+            <ng-template #showHardSkillNames>
+              <div class="softSkills" *ngFor="let hardSkills of this.hardSkillsList">
+                <span class="badge badge-pill">
+                  <button type="button" mat-mini-fab>
+                    <mat-icon (click)="addHardSkills( hardSkills.skillId, $event)">add</mat-icon>
+                  </button>
+                  <span> {{hardSkills.skillName}}</span>
+                </span>
+              </div>
+            </ng-template>
+            <br><br>
+            <!-- softskills -->
+            <div class="outerSoftSkills">
+              <p class="domains softskill">SoftSkills</p>
+              <div class="softSkills" *ngFor="let softskills of finalFollowingSoftSkills">
+
+                <span class="badge badge-pill selectedBadge">
+                  <button type="button" mat-mini-fab onclick="this.parentElement.style.display='none'">
+                    <mat-icon (click)="closeSkills(softskills.id, softskills.userId)">remove</mat-icon>
+                  </button>
+                  <span> {{softskills.title}} </span>
+                  <!-- <i class="fa fa-times" (click)="closeSkills(softskills.id, softskills.userId)" onclick="this.parentElement.style.display='none'">
+              </i>  -->
+                </span>
+              </div>
+              <br>
+              <div *ngIf="notShowSoftSkillsNames; else showSoftSkillNames">
+                <div class="softSkills" *ngFor="let softSkills of this.finalRemainingSkills">
+                  <span class="badge badge-pill">
+                    <button type="button" mat-mini-fab onclick="this.parentElement.style.backgroundcolor='black'">
+                      <mat-icon (click)="addSoftSkills( softSkills.id, $event)">add</mat-icon>
+                    </button>
+                    <span> {{softSkills.title}}</span>
+                    <!-- <i class="fa fa-plus fa-lg" (click) ="addSoftSkills( softSkills.id, $event)">
+         </i> -->
+                  </span>
+                </div>
+              </div>
+              <br>
+              <ng-template #showSoftSkillNames>
+                <div class="softSkills" *ngFor="let softSkills of this.softskillsList">
+                  <span class="badge badge-pill">
+                    <button type="button" mat-mini-fab>
+                      <mat-icon (click)="addSoftSkills( softSkills.skillId, $event)">add</mat-icon>
+                    </button>
+                    <span> {{softSkills.skillName}}</span>
+
+                    <!-- <i class="fa fa-plus fa-lg" (click) ="addSoftSkills( softSkills.skillId, $event)">
+                 </i> -->
+                  </span>
+                </div>
+              </ng-template>
+            </div>
+            <!-- <div class="row pt-3 btnAlign" *ngIf="showButton">
+          <button class="btn" (click)="updateSkills()" >Save</button>
+
+         </div> -->
+            <!-- <button class="btn mr-3" >cancel</button> -->
+            <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>  onclick="this.parentElement.style.backgroundColor='#5856D6'" -->
+
+
+
+
+
+
+
+
+          </div>
+          <div class="step3Image">
+            <img class="step3SkillsImage" src="../../../assets/images/default/Step 3.svg">
+          </div>
+        </div>
+        <div class="action">
+          <button type="button" mat-raised-button class="cancel">CANCEL</button>
+          <button type="submit" mat-raised-button class="save" [disabled]="!profileForm.valid" >SAVE</button>
+        </div>
+
+
+
+        <!-- [disabled]="!profileForm.valid" -->
+
+      </form>
+    </div>
+
+  </main>
+
+
+
+
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+
+
+</body>
+
+
+<!-- <div class="imageStep1">
+              <img class="step1image" src="../../../assets/images/default/Step 1.svg">
+            </div>
+ <div class="next">
+          <mat-icon class="forward-arrow">arrow_forward</mat-icon>
+        </div> -->

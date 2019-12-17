@@ -1,0 +1,94 @@
+<html>
+
+<body>
+  <article class="flex-container">
+    <section class="flex">
+      <div id="blur"></div>
+      <div class="content">
+        <h5 class="heading ">
+          <b>Sign Up</b> <br>
+          <!-- You are a few steps away from <br>
+          bringing about a <b>Change -->
+          <span class="subheading">You are a few steps away from bringing about a Change.</span>
+        </h5>
+
+
+        <main class="loginFields">
+          <form (submit)="addRegisterDetails(registerForm)" #registerForm="ngForm">
+            <div class="nameField">
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" name="firstName" ngModel required #firstName="ngModel" autocomplete="off">
+                <mat-error *ngIf="firstName.invalid">Please enter a FirstName</mat-error>
+                <mat-icon matPrefix>person</mat-icon>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" name="lastName" ngModel required #lastName="ngModel"  autocomplete="off">
+                <mat-error *ngIf="lastName.invalid">Please enter a LastName</mat-error>
+                <mat-icon matSuffix></mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="mailField">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" ngModel required #email="ngModel"  autocomplete="off">
+                <mat-error *ngIf="email.invalid">Please enter valid Email</mat-error>
+                <mat-icon matPrefix>email_outline</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="passwordField">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide1 ? 'password' : 'text'" name="password" ngModel required
+                  #password="ngModel"  autocomplete="off">
+                <mat-icon matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password.invalid">Please enter password</mat-error>
+              </mat-form-field>
+              <mat-form-field class="confirmPassword" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'" name="confirmPassword" ngModel required
+                  #confirmPassword="ngModel"  autocomplete="off">
+                <mat-icon matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="confirmPassword.invalid">Please enter ConfirmPassword</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="numberField">
+              <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput type="tel" maxlength=10 name="number" ngModel required #number="ngModel" autocomplete="off">
+                <mat-icon matPrefix  >call</mat-icon>
+                <mat-error *ngIf="number.invalid">Please enter valid Number</mat-error>
+              </mat-form-field>
+            </div>
+            <button class="btn-signIn" mat-raised-button type="submit">Continue</button>
+          </form>
+
+        </main>
+      </div>
+      <!-- <br><br><br><br><br><br> -->
+      <footer class="footer">
+        <article class="row">
+          <section class="footer1">
+
+            <span>
+                <mat-icon matPrefix>keyboard_backspace</mat-icon><a routerLinkActive="active" routerLink="/login">Go back to Sign in</a>
+            </span>
+          </section>
+          <section class="footer2">
+            <figure>
+                <a class="university" href="https://www.universityofcommons.com/"><img src="/assets/images/default/uoc-new-logo_colour.png" alt="University of commons"></a>
+            </figure>
+          </section>
+        </article>
+      </footer>
+      <!-- </div> -->
+
+
+    </section>
+  </article>
+</body>
+
+</html>

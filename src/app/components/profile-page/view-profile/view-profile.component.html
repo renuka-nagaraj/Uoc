@@ -1,0 +1,61 @@
+<body>
+  <header>
+    <app-header></app-header>
+  </header>
+  <main>
+    <div class="viewProfile-content">
+      <div class="row">
+        <div class="col1 col1-width">
+            <img class="profileImage" [src]="this.url">
+        </div>
+        <div class="col2 col2-width">
+            <div class="row21 alignMent">
+               <div class="userName">
+                    <span>{{userName}}</span>
+                    <!-- <span>Priya Mehta</span> -->
+                    <div class="title">
+                    <small class="weight">{{occupation}}</small><br>
+                    <!-- <small>Mindtree.org</small> -->
+                  </div>
+                  </div>
+                  <div class="edit">
+                   <a href="" routerLink="/profile" routerLinkActive="active" >Edit</a>
+                  </div>
+            </div>
+            <div class="row21 alignMent1">
+              <!-- <p>{{aboutMe}}</p> -->
+                <p>I have been an active volunteer in the social space for the past 6years
+                  I have been a key part of a lot of voluteering and fellowship programs
+                  and have collaborated with key NGOs in india.</p>
+                  <p>I have been an active volunteer in the social space for the past 6years.<br>
+                    I have been a key part of a lot of voluteering and fellowship programs<br>
+                    and have collaborated with key NGOs in india.</p>
+              </div>
+              <div class="row21 alignMent1">
+                  <button mat-button matTooltip="Coming soon" class="followmessage"> MESSAGE</button>
+                  <button mat-button  matTooltip="Coming soon" class="followmessage follow"> FOLLOW</button>
+                </div>
+                <div class="row21 alignMent2">
+                <div  style="padding:0% 1%" *ngFor="let media of this.socialMediaLink">
+                  <div class="spacer" *ngIf = "media.lable == 'Youtube'">
+                      <a href="{{media.link}}" target="blank"><i class="fab fa-youtube"></i></a>
+                  </div>
+                  <div class="spacer" *ngIf = "media.lable == 'Instagram'">
+                      <a href="{{media.link}}" target="blank"><i class="fab fa-instagram"></i></a>
+                  </div>
+                  <div class="spacer" *ngIf = "media.lable == 'LinkedIn'">
+                      <a href="{{media.link}}" target="blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                  <div class="spacer" *ngIf = "media.lable == 'Twitter'">
+                      <a href="{{media.link}}"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</body>

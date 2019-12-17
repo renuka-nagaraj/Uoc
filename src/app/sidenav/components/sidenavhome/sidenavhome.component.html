@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <aside *ngIf="loginData$ | async">
+      
+    <div class="sidebar left togglesidebar overlay"  trapScroll trapKeyScroll [ngClass]="sidenavClass$ | async" #sidebar>
+      <ul class="list-sidebar bg-default">
+          <ng-template let-menu let-i="index" ngFor [ngForOf]="menus">
+        <li> 
+          <a *ngIf="menu.link === ''" data-toggle="collapse" [attr.data-target]="'#' + menu.title | removewhitespaces" class=" mainmenu collapsed" (click)="showfull(menu.title, (menu.submenu.length !== 0))" [ngClass]="{'active': (selectedMainIndex$ | async) == menu.title}" #show>
+             <!-- <i class="{{menu.icon}}"></i> -->
+             <div class="row">
+               <div class="col-md-2 col align-self-center">
+             <img src="{{menu.icon}}" class="menuicon">
+             </div>
+             <div class="col-md-8 col align-self-center">
+             <span class="nav-label"> <strong>{{menu.title}}</strong> </span>
+             </div>
+             <div class="col-md-2 col align-self-center">
+              <span *ngIf='menu.submenu.length !== 0'  class="fa fa-chevron-down pull-right"></span> 
+              </div>
+              </div>
+            </a>
+            <a *ngIf="menu.link !== ''" [routerLink]="menu.link" data-toggle="collapse" [attr.data-target]="'#' + menu.target" class="mainmenu collapsed" (click)="showfull(menu.title, (menu.submenu.length !== 0))"  [ngClass]="{'active': (selectedMainIndex$ | async) == menu.title}" #show>
+                <!-- <i class="{{menu.icon}}"></i> -->
+                
+                <!-- <img src="{{menu.icon}}" class="menuicon">
+                <span class="nav-label"><strong> {{menu.title}} </strong> </span>
+                 <span *ngIf='menu.submenu.length !== 0'  class="fa fa-chevron-left pull-right"></span>  -->
+                 <div class="row">
+                    <div class="col-md-2 col align-self-center">
+                  <img src="{{menu.icon}}" class="menuicon">
+                  </div>
+                  <div class="col-md-8 col align-self-center">
+                  <span class="nav-label"> <strong>{{menu.title}}</strong> </span>
+                  </div>
+                  <div class="col-md-2 col align-self-center">
+                   <span *ngIf='menu.submenu.length !== 0'  class="fa fa-chevron-down pull-right"></span> 
+                   </div>
+                   </div>
+               </a>
+        <ul class="sub-menu collapse" id="{{menu.title | removewhitespaces}}" *ngFor="let submenu of menu.submenu; let i=index">
+          <li><a class="submenu_font" [routerLink]="submenu.link" (click)="select(menu.title, submenu.title)" [ngClass]="{'active': (selectedSubIndex$ | async) == submenu.title}">{{submenu.title}}</a></li>
+        </ul>
+        
+      </li> 
+      </ng-template>
+    </ul>
+</div>
+</aside>
+<div id="content">      
+<router-outlet></router-outlet>
+</div>
+</div> 

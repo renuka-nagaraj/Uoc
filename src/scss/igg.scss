@@ -1,0 +1,125 @@
+
+@import './colors.scss';
+
+//Buttons
+.btn-igg-primary {
+    color:  $white;
+    background-color: $igg-primary;
+    border-color: $igg-primary;
+  }
+  
+  .btn-igg-CTA {
+    color:  $white;
+    background-color: $igg-cta;
+    border-color: $igg-cta;
+  }
+  
+  .btn-igg-secondary {
+    color:   $white;
+    background-color: $igg-secondary;
+    border-color:  $igg-secondary ;
+  }
+  
+  .btn-igg-neutral {
+    color:   $white;
+    background-color:  $igg-neutral ;
+    border-color:  $igg-neutral ;
+  }
+
+  // drop-down
+  .dropdown-item-igg{
+    background-color: $igg-neutral;
+    color: $white;
+  }
+
+  //navbar component
+
+  .navbar {
+    height: 64px;
+  }
+
+  //Navbar background color
+  .bg-light-igg{
+    background-color: $header-color !important;
+    color: white;
+  }
+
+
+  // Radio button
+  .custom-radio .custom-control-label::before {
+    background-color: $white;
+}
+
+/* This is the checked state */
+.custom-radio .custom-control-input-igg:checked~.custom-control-label::before,
+.custom-radio .custom-control-input-igg:checked~.custom-control-label::after {
+    background-color: $igg-primary;  /* green */
+    border-radius: 50%;
+}
+
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-radio .custom-control-input-igg:active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #ff0000; /* red */
+}
+    
+/* the shadow; displayed while the element is in focus */
+.custom-radio .custom-control-input-igg:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 123, 255, 0.25); /* pink, 25% opacity */
+}
+
+ // Check-box
+ .custom-checkbox .custom-control-label::before {
+  background-color: $white;
+}
+
+/* This is the checked state */
+.custom-checkbox .custom-control-input-igg:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input-igg:checked~.custom-control-label::after {
+  background-color:$igg-primary;  /* green */
+}
+
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-checkbox .custom-control-input-igg:active ~ .custom-control-label::before {
+  color: #fff;
+  background-color: #ff0000; /* red */
+}
+  
+/* the shadow; displayed while the element is in focus */
+.custom-checkbox .custom-control-input-igg:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 123, 255, 0.25); /* pink, 25% opacity */
+}
+
+.custom-control-lg .custom-control-label::before,
+.custom-control-lg .custom-control-label::after {
+    top: 0.1rem !important;
+    left: -2rem !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+.custom-control-lg .custom-control-label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
+}
+
+.table{
+  th {
+    background-color: rgb(226, 223, 223);
+  }
+    tr:hover {
+      background-color:#f5f5f5;
+    }
+}
+
+.table-bordered{
+  border: 3px;
+}
+
+.nav-link{
+  color: white !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}

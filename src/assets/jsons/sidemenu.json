@@ -1,0 +1,18 @@
+[
+    {
+      "title": "IGX StyleGuide",
+      "link": "",
+      "icon": "assets/images/menu_icon/sample.png",
+      "submenu": [
+        {
+          "title": "IGGStyleGuide",
+          "link": "iggsg"
+        },
+        {
+          "title": "IGCStyleGuide",
+          "link": "igcsg"
+        }
+      ]
+    }
+  ]
+  

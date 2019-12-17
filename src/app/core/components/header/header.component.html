@@ -1,0 +1,32 @@
+ <mat-toolbar color="">
+    <mat-toolbar-row>
+      <span><img src="../../../../assets/images/default/uoc-new-logo_colour.png"></span>
+      <span class="example-spacer"></span>
+      <!-- <div class="explore">
+          <select  class="dropDown" (change)="catalogue($event.target.value)">
+            <option disabled>--select--</option>
+            <option value="catalogue">EXPLORE</option>
+            <option value="catalogue">CATALOGUE</option>
+
+          </select>
+        </div> -->
+        <span class="subTopics"><a routerLinkActive="active" routerLink="/catalogue"> EXPLORE </a></span>
+      <!-- <span class="subTopics">MY THOUGHTS</span>
+       <span class="subTopics">PLANNER</span> -->
+      <span class="line"></span>
+      <!-- <div class="searchBox">
+          <mat-icon class="search">search</mat-icon>
+         <i class="fas fa-search search"></i>
+          <input type="text" class="form-control" placeholder="what's on your mind?" />
+      </div> -->
+      <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">notifications_none</mat-icon> -->
+
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">person
+          <mat-select>
+              <a routerLinkActive="active" routerLink="/viewProfile"> <mat-option> View Profile </mat-option></a>
+              <mat-option  (click)="logout()"> LogOut </mat-option>
+            </mat-select>
+      </mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+

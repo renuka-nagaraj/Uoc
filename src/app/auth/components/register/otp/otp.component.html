@@ -1,0 +1,52 @@
+<html>
+
+<body>
+  <article class="flex-container">
+    <section class="flex">
+      <div id="blur"></div>
+      <div class="content">
+        <h5 class="heading ">
+          You are a few steps away from <br>
+          bringing about a <b>Change</b>.
+        </h5>
+
+
+        <main class="loginFields">
+          <form class="loginFields" (submit)="activateUser(activateuser)" #activateuser="ngForm">
+           <p>We will send a verification code<br>
+             to confirm it's you</p>
+            <mat-form-field  appearance="outline">
+              <mat-label >OTP</mat-label>
+              <input matInput type="text" name="otp" ngModel required #otp="ngModel">
+              <mat-error align='center' *ngIf="otp.invalid">Please enter valid otp</mat-error>
+              <mat-hint>Resend OTP</mat-hint>
+            </mat-form-field>
+            <button class="btn-signIn" type="submit" mat-raised-button>SIGN IN</button>
+          </form>
+
+        </main>
+      </div>
+      <!-- <br><br><br><br><br><br> -->
+      <footer class="footer">
+          <article class="row">
+            <section class="footer1">
+
+              <span>
+                  <mat-icon matPrefix>keyboard_backspace</mat-icon><a routerLinkActive="active" routerLink="/login">Go back </a>
+              </span>
+            </section>
+            <section class="footer2">
+              <figure>
+                  <a class="university" href="https://www.universityofcommons.com/"><img src="/assets/images/default/uoc-new-logo_colour.png" alt="University of commons"></a>
+              </figure>
+            </section>
+          </article>
+        </footer>
+      <!-- </div> -->
+
+
+    </section>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+ @media (min-width: 320px) and (max-width: 768px){
+    .navbar{
+    height: auto !important;
+    }
+    .searchbox{
+      display: none;
+    }
+}
+
+.navbar {
+  background-color: #073d8c;
+  height: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.searchbox {
+  color: #333;
+  border: none;
+  border-radius: 2.5rem;
+  background-color: #fafafa;
+  padding: 5px 16px;
+  margin-left: 8px;
+  width: 11rem;
+  max-width: 260px;
+  height: 1.6rem;
+  -webkit-appearance: none;
+  outline: none;
+  margin-right: 0.25rem;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.searchbox:focus {
+  border: 2px solid dodgerblue;
+}
+.searchbox {
+  transition: width 0.4s ease-in-out;
+}
+.navbar-default .navbar-nav > li > a.router-link-active {
+    color: pink;
+    background-color:white;
+  }
+
+  .country_image {
+    width: 20px;
+  }
+
+  .component-width {
+    width: 50%
+  }

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "IGX StyleGuide",
+    "link": "",
+    "icon": "assets/images/menu_icon/sample.png",
+     "sidenav": false,
+    "submenu": [
+      {
+        "title": "IGGStyleGuide",
+        "link": "styleguide/iggsg",
+        "sidenav": false
+      },
+      {
+        "title": "IGCStyleGuide",
+        "link": "styleguide/igcsg",
+        "sidenav": false
+      }
+    ]
+  },{
+    "title": "404",
+    "link": "wildcard",
+    "icon": "assets/images/menu_icon/404.png",
+    "sidenav": false,
+    "submenu": [
+    ]
+  },{
+    "title": "Sidenav",
+    "link": "sidenav",
+    "icon": "assets/images/menu_icon/404.png",
+    "sidenav": true,
+    "submenu": [
+    ]
+  }
+]

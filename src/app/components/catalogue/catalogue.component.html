@@ -1,0 +1,134 @@
+<body>
+  <header>
+    <app-header></app-header>
+  </header>
+  <main>
+    <div class="parent">
+      <div class="image-banner">
+        <img class="backgroundImage" src="../../../assets/images/default/shutterstock.jpg">
+        <div class="banner-content">
+            <p class="commonProfileContent profileHeading">LET'S BEGIN THE <br> JOURNEYS OF CHANGE  </p>
+            <p class="commonProfileContent profilesubHeading">Explore the journeys and choose <br> the one that fits you right.</p>
+
+
+        </div>
+      </div>
+      <div *ngFor='let product of marketProducts'>
+      <div class="india-agri">
+        <div class="common-Image agri-image">
+
+        </div>
+        <div class="common-Image agri-content">
+          <div class="content-heading-tabs">
+            <div class="heading">
+              <p class="title">{{ product.ProductName }}</p>
+              <p class="subTitle">University of Commons</p>
+            </div>
+            <div class="tabs" >
+              <button mat-button *ngFor="let domain of product.domains"><span>{{domain}}</span></button>
+            </div>
+          </div>
+           <div class="contentbody">
+            <p>
+              {{product.longdescription}}
+            </p>
+            </div>
+            <div class="readmore-applynow">
+              <div class="readmore">
+                  <button class="" mat-button><a href={{product.Description}}>READ MORE</a></button>
+              </div>
+              <div class="applyNow">
+              <button class="applyNowBtn" mat-button>{{product.applicationStatus}}</button>
+            </div>
+              </div>
+              <div class="footer">
+                <!-- <img class="logo" src="../../../assets/images/default/UoClogo-color.png"> -->
+                <img class="logo" [src] = "product.partnerLogo">
+              </div>
+        </div>
+
+      </div>
+    </div>
+      <!-- <div class="active-citizen">
+          <div class="common-Image agri-image">
+
+          </div>
+          <div class="common-Image agri-content">
+            <div class="content-heading-tabs">
+              <div class="heading">
+                <p class="title">Active citizen Fellowship</p>
+                <p class="subTitle">University of Commons</p>
+              </div>
+              <div class="tabs">
+                <button mat-button>Society</button>
+                <button mat-button>Citizenship</button>
+                <button mat-button>Market</button>
+              </div>
+            </div>
+             <div class="contentbody">
+              <p > Through the Active Citizen Fellowship, UoC is nurturing mid school students to care about their  <br>
+               community enough to change it. Fellows work with young citizens schools, who in turn work with<br>
+               their parents $ local communities to drive participation in democrazy, market and civil society.
+
+              </p>
+              </div>
+              <div class="readmore-applynow">
+                <div class="readmore">
+                    <button class="" mat-button>READ MORE</button>
+                </div>
+                <div class="applyNow">
+                <button class="applyNowBtn" mat-button>APPLY NOW</button>
+              </div>
+                </div>
+                <div class="footer">
+                  <img class="logo" src="../../../assets/images/default/UoClogo-color.png">
+                </div>
+          </div>
+
+        </div>
+
+
+         <div class="Gandhi-Fellowship">
+            <div class="common-Image agri-image">
+
+            </div>
+            <div class="common-Image agri-content">
+              <div class="content-heading-tabs">
+                <div class="heading">
+                  <p class="title">Gandhi Fellowship</p>
+                  <p class="subTitle">Piramal Foundation</p>
+                </div>
+                <div class="tabs">
+                  <button mat-button>Leadership</button>
+                  <button mat-button>School</button>
+                  <button mat-button>Development</button>
+                </div>
+              </div>
+               <div class="contentbody">
+                <p > The Gandhi Fellowship by kaiavalya Education Foundation is a 2 Year Residential, Professional<br>
+              program in Transformation Leadership. The fellowship is designed to develop young change leaders<br>
+                  who embody and practice leadership skills that are needed to cause large scale social and public <br>
+                  systems chnage.
+
+                </p>
+                </div>
+                <div class="readmore-applynow">
+                  <div class="readmore">
+                      <button class="" mat-button>READ MORE</button>
+                  </div>
+                  <div class="applyNow">
+                  <button class="applyNowBtn" mat-button>APPLY NOW</button>
+                </div>
+                  </div>
+                  <div class="footer">
+                    <img class="logo" src="../../../assets/images/default/UoClogo-color.png">
+                  </div>
+            </div>
+
+          </div> -->
+    </div>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</body>
